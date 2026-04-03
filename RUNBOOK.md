@@ -84,6 +84,12 @@ The client times out after 8 seconds via `AbortSignal.timeout(8_000)` in `src/ho
 
 **7. Disabling the feature**
 
-Set `NEXT_PUBLIC_AI_INSIGHTS_ENABLED=false` in your hosting platform and redeploy. The AI section disappears entirely for everyone.
+Create or edit `.env.local` in the project root:
 
-Worth knowing: because it's a `NEXT_PUBLIC_` variable it gets baked into the client bundle at build time, so you do need a redeploy to flip it. If you need a true runtime toggle without deploys, replace it with a server-fetched flag or something like LaunchDarkly.
+```bash
+NEXT_PUBLIC_AI_INSIGHTS_ENABLED=false
+```
+
+Then restart the dev server (`npm run dev`). The AI section disappears entirely.
+
+Worth knowing: because it's a `NEXT_PUBLIC_` variable it gets baked into the client bundle at build time — you need a server restart to pick up the change, not just a page refresh. If deployed, you'd set this in your hosting platform's environment settings and redeploy.
