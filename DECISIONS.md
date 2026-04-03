@@ -20,7 +20,7 @@ Styling is Tailwind v4 with CSS custom properties for design tokens. Tailwind v4
 
 I used Claude Code throughout. A few things I set up that helped:
 
-I added a `CLAUDE.md` → `AGENTS.md` file that tells the assistant to read the Next.js docs from `node_modules/next/dist/docs/` before writing any Next.js code. This matters because Next.js 16 has breaking changes from older versions and the model's training data doesn't cover them. Without that instruction it would confidently write code against the old APIs.
+I gave the assistant explicit instructions to read the Next.js docs from `node_modules/next/dist/docs/` before writing any Next.js code. This matters because Next.js 16 has breaking changes from older versions that fall outside the model's training data. Without that instruction it would confidently write code against the old APIs.
 
 I used plan mode before starting the main implementation — it forced me to think through the architecture before touching any files, and I caught a few bad ideas early.
 
