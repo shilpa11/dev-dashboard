@@ -2,7 +2,7 @@
 
 ---
 
-## Step 1 — Browser hits localhost:3001
+## Step 1 — Browser hits localhost:3000
 
 Next.js serves `src/app/layout.tsx` first. This is the shell that wraps every page.
 
@@ -241,17 +241,13 @@ The server validates the token, generates deterministic insights seeded by `empl
 
 ---
 
-## Full data flow
-
----
-
 ## Verifying the APIs manually
 
 You can test any endpoint directly from a second terminal while `npm run dev` is running.
 
 **Telemetry**
 ```bash
-curl -X POST http://localhost:3001/api/telemetry \
+curl -X POST http://localhost:3000/api/telemetry \
   -H "Content-Type: application/json" \
   -d '{"event":"test","properties":{"hello":"world"}}'
 ```
@@ -263,7 +259,7 @@ curl -X POST http://localhost:3001/api/telemetry \
 
 **GraphQL**
 ```bash
-curl -X POST http://localhost:3001/api/graphql \
+curl -X POST http://localhost:3000/api/graphql \
   -H "Content-Type: application/json" \
   -d '{"query":"{ developers(first: 3) { totalCount edges { node { id name } } } }"}'
 ```
@@ -272,7 +268,7 @@ curl -X POST http://localhost:3001/api/graphql \
 
 **AI consent**
 ```bash
-curl -X POST http://localhost:3001/api/ai/consent \
+curl -X POST http://localhost:3000/api/ai/consent \
   -H "Content-Type: application/json" \
   -d '{"agreed": true}'
 ```
@@ -280,7 +276,7 @@ curl -X POST http://localhost:3001/api/ai/consent \
 
 **AI insights** (paste the token from above)
 ```bash
-curl http://localhost:3001/api/ai/insights/dev-001 \
+curl http://localhost:3000/api/ai/insights/dev-001 \
   -H "x-consent-token: <paste-token-here>"
 ```
 - Returns the full insights JSON for developer `dev-001`
