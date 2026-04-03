@@ -28,7 +28,7 @@ If it's `false` the AI section won't render at all — this is intentional. Stop
 **2. Hit the consent endpoint directly**
 
 ```bash
-curl -X POST https://your-domain/api/ai/consent \
+curl -X POST http://localhost:3000/api/ai/consent \
   -H "Content-Type: application/json" \
   -d '{"agreed": true}'
 ```
@@ -40,7 +40,7 @@ You should get back `{"token": "..."}`. A 400 means the request body is wrong; a
 **3. Hit the insights endpoint directly**
 
 ```bash
-curl https://your-domain/api/ai/insights/dev-001 \
+curl http://localhost:3000/api/ai/insights/dev-001 \
   -H "x-consent-token: <token from step 2>"
 ```
 
